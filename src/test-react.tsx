@@ -27,7 +27,7 @@ type State = {
 class MultiplierComponent extends React.PureComponent<Props, State> {
   state: State = {
     isVisible: false,
-    entries: null,
+    entries: [0, 500],
   };
 
   componentDidMount() {
@@ -51,7 +51,7 @@ class MultiplierComponent extends React.PureComponent<Props, State> {
     this.fetch();
   }
   async fetch() {
-    const entries = this.loadData();
+    const entries = await this.loadData();
     this.setState({ entries: entries });
     this.notify();
   }
